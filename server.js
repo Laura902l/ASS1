@@ -20,26 +20,22 @@ app.use('/', staticRoutes);
 
 app.use(bodyParser.json());
 
-// Считать данные из файла tours.json
 let tourHistory = require('./tours.json');
 
 app.post('/travelagency', (req, res) => {
     const { city, country, description } = req.body;
 
-    // Assuming you have some logic to add the tour to the database or tourHistory array
-    // For simplicity, let's just push the new tour into the tourHistory array
+
     tourHistory.push({
         city,
         country,
         description,
-        // Add other properties as needed
     });
 
     const newTour = {
         city,
         country,
         description,
-        // Add other properties as needed
     };
 
     res.json({ message: 'Tour added successfully', newTour });
