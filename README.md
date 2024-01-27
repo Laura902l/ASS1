@@ -1,33 +1,34 @@
-# Tour Management System
+# WEB Technologies 2 (Back End) - Assignment 1: Travel Agency
 
-Welcome to the Tour Management System, a web application built using Node.js and Express.js that allows users to book, edit, delete tours, and view booking history.
+
+
+## Introduction
+
+Welcome to the Travel Agency Web Application! This project is a smart routing travel agency implemented using Express.js and Node.js. The goal is to provide a seamless experience for users to book, edit, and view tour information.
 
 ## Installation and Run Instructions
 
-1. Clone the Repository:
-
+1. **Clone the Repository:**
     ```bash
-    git clone [https://github.com/Laura902l/assWeb2.git](https://github.com/Laura902l/ass1/tree/main.git)
-    cd assWeb2
+    git clone https://github.com/your-username/travel-agency.git
+    cd travel-agency
     ```
 
-2. Install Dependencies:
-
+2. **Install Dependencies:**
     ```bash
     npm install
     ```
 
-3. Run the Application:
-
+3. **Run the Application:**
     ```bash
     npm start
     ```
 
-    The application will run on http://localhost:3000.
+   The application will be accessible at http://localhost:3000.
 
 ## File Structure
 
-The project has the following structure:
+The project follows a well-organized folder structure:
 
 - `public`: Contains static files.
 - `routes`: Handles route logic.
@@ -35,30 +36,39 @@ The project has the following structure:
 
 ## HTML Template
 
-The HTML template (`views/history.ejs`) uses Bootstrap for a clean and responsive design. It includes a navigation bar for easy navigation and a footer displaying the group name.
+The HTML template (`views/index.html`) incorporates Bootstrap for a clean and responsive design:
+
+- Professional-looking navigation bar.
+- Footer section displaying your name and group name.
 
 ## Express Server (server.js)
 
-The server runs on the default port 3000. The logic for the travel agency is implemented in the `/travelagency` route, handling GET, POST, PUT, DELETE requests. Optionally, the code is organized by separating routes into a separate file (`routes/travelRoutes.js`).
+- The server runs on the default port 3000.
+- Optional: Code is organized by separating routes into a separate file (e.g., `routes/travelRoutes.js`).
 
-## NPM Packages Integration
+## Travel Agency Logic
 
-Two NPM packages related to the project are integrated:
+- `/` route serves the home page.
+- `/travelagency` route handles both GET and POST requests.
+- Logic for the travel agency is implemented in the core JS file.
 
-- **Axios**: Used for making HTTP requests to the OpenWeatherMap API for weather information.
-- **Bootstrap**: Integrated for styling and responsiveness.
+## Integration of NPM Packages
+
+- Utilizes at least two npm packages:
+  - Axios for weather information from an API.
+  - Faker for [another functionality].
+- Calculates the cost of the tour and displays it.
+- Implements weather conditions of the chosen tour.
+- Includes a history feature storing recently selected tours with timestamps.
+- Creates a route to view the history of tours.
 
 ## Enhanced UI
 
-- Additional select fields for country, hotel, date arrival, date departure, and quantity of persons (adult and children) for comprehensive Tour editing.
-- Dropdowns for selecting country and city, along with control buttons (view tour, add tour, delete tour, history).
-- Updated Tour result displayed with a meaningful interpretation and enhanced style for a visually appealing interface.
+- Additional input fields for country, hotel, date arrival, date departure, and quantity of persons (adult and children) for comprehensive tour calculation.
+- Dropdowns for selecting country and city.
+- Displays the calculated tour result with a meaningful interpretation.
+- Styles the result for a visually appealing interface.
 
-## Tour History
+## Conclusion
 
-- The application stores booking history in a JSON file structure.
-- A history feature is implemented to store recently deleted Tours with timestamps.
-- A route is created to view the history of Tours.
-
-Feel free to explore and enjoy the Tour Management System!
-
+Explore and enjoy the Travel Agency Web Application! If you encounter any issues or have suggestions for improvement, feel free to contribute. Happy traveling!
