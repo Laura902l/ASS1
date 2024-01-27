@@ -4,7 +4,6 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-// Assuming you have the tourHistory array available
 const tourHistory = [];
 
 // Route to view tour history
