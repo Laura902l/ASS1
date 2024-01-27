@@ -9,7 +9,7 @@ Welcome to the Travel Agency Web Application! This project is a smart routing tr
 
 1. **Clone the Repository:**
     ```bash
-    git clone [https://github.com/your-username/travel-agency.git](https://github.com/Laura902l/ass1/edit/main/README.md)
+    git clone https://github.com/your-username/travel-agency.git
     cd travel-agency
     ```
 
