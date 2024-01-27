@@ -1,7 +1,6 @@
 # WEB Technologies 2 (Back End) - Assignment 1: Travel Agency
 
 
-
 ## Introduction
 
 Welcome to the Travel Agency Web Application! This project is a smart routing travel agency implemented using Express.js and Node.js. The goal is to provide a seamless experience for users to book, edit, and view tour information.
@@ -10,7 +9,7 @@ Welcome to the Travel Agency Web Application! This project is a smart routing tr
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/travel-agency.git
+    git clone [https://github.com/your-username/travel-agency.git](https://github.com/Laura902l/ass1/edit/main/README.md)
     cd travel-agency
     ```
 
@@ -56,7 +55,16 @@ The HTML template (`views/index.html`) incorporates Bootstrap for a clean and re
 
 - Utilizes at least two npm packages:
   - Axios for weather information from an API.
-  - Faker for [another functionality].
+  - Faker for generating fake data for [another functionality].
+- **Bootstrap**: Integrated for styling and responsiveness.
+- Utilizes at least two npm packages:
+  - Axios for weather information from an API.
+- Faker for generating appropriate data.
+  - Calculates the cost of the tour and displays it.
+- Implements weather conditions of the chosen tour.
+- Includes a history feature storing recently selected tours with timestamps.
+- Creates a route to view the history of tours.
+
 - Calculates the cost of the tour and displays it.
 - Implements weather conditions of the chosen tour.
 - Includes a history feature storing recently selected tours with timestamps.
