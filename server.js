@@ -20,26 +20,6 @@ app.use('/', staticRoutes);
 
 app.use(bodyParser.json());
 
-let tourHistory = require('./tours.json');
-
-app.post('/travelagency', (req, res) => {
-    const { city, country, description } = req.body;
-
-
-    tourHistory.push({
-        city,
-        country,
-        description,
-    });
-
-    const newTour = {
-        city,
-        country,
-        description,
-    };
-
-    res.json({ message: 'Tour added successfully', newTour });
-});
 
 
 // Запускаем сервер
