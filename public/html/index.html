@@ -264,7 +264,6 @@
                             <textarea class="form-control" id="description" name="description" rows="3"
                                 required></textarea>
                         </div>
-                        <!-- Add other fields as needed -->
 
                         <button type="button" class="btn btn-primary" onclick="addTours()">Add Tour</button>
                     </form>
@@ -273,27 +272,7 @@
         </div>
     </div>
 
-    <!-- Форма для добавления тура -->
-    <form id="addTourForm" onsubmit="addTour(); return false;">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="newCity">City:</label>
-                <input type="text" class="form-control" id="newCity" name="newCity" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="newCountry">Country:</label>
-                <input type="text" class="form-control" id="newCountry" name="newCountry" required>
-            </div>
-            <div class="form-group col-md-12">
-                <label for="newDescription">Description:</label>
-                <textarea class="form-control" id="newDescription" name="newDescription" rows="3"></textarea>
-            </div>
-        </div>
-        <button type="button" class="btn btn-success" onclick="addTour()">Add</button>
-        <div id="resultContainer"></div> <!-- Новый элемент для отображения результата -->
-        <pre id="jsonResult"></pre>
-    </form>
-
+  
 
 
     <!-- Footer -->
@@ -446,7 +425,6 @@
                 document.getElementById('clouds').innerText = `Clouds: ${weatherData.clouds} m/s`;
                 document.getElementById('windSpeed').innerText = `Wind Speed: ${weatherData.windSpeed} m/s`;
 
-                // Set the city name in the weather booking form
                 document.getElementById('weatherCity').value = weatherData.location;
 
                 // Calculate and display prices based on city name
@@ -484,111 +462,8 @@
             }
         }
 
-        function showAddTourForm() {
-            $('#addTourModal').modal('show');
-        }
-    
-        function addTours() {
-            const city = $('#city').val();
-            const country = $('#country').val();
-            const description = $('#description').val();
-    
-            // Make a POST request to your /travelagency route to add the tour
-            $.post('/travelagency', { city, country, description }, function (data) {
-                // Handle the response (you can update the UI or show a success message)
-                console.log(data);
-                $('#addTourModal').modal('hide');
-            });
-        }
-        // Добавление тура на сервер
-        function addTour() {
-            console.log('Button clicked');
-            const newCity = document.getElementById('newCity').value;
-            const newCountry = document.getElementById('newCountry').value;
-            const newDescription = document.getElementById('newDescription').value;
-
-            // Отправка запроса на сервер для добавления тура
-            fetch('/travel/travelagency', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ city: newCity, country: newCountry, description: newDescription }),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Tour added successfully:', data);
-
-                    // Отобразить JSON-ответ на странице
-                    document.getElementById('jsonResult').textContent = JSON.stringify(data, null, 2);
-
-                    // Обновить отображение туров на странице
-                    displayTours();
-                })
-                .catch(error => {
-                    console.error('Error adding tour:', error);
-                    document.getElementById('jsonResult').textContent = 'Error adding tour. Check the console for details.';
-                });
-        }
-
-        // Отображение туров на странице
-        function displayTours() {
-            // Запросить данные из tours.json
-            fetch('/travel/tours')
-                .then(response => response.json())
-                .then(tourData => {
-                    // Отобразить туры на странице
-                    const tourContainer = document.getElementById('tourContainer');
-                    tourContainer.innerHTML = ''; // Очистить предыдущее содержимое
-
-                    tourData.tours.forEach(tour => {
-                        const card = document.createElement('div');
-                        card.className = 'card shadow';
-
-                        const cardBody = document.createElement('div');
-                        cardBody.className = 'card-body';
-
-                        const title = document.createElement('h5');
-                        title.className = 'card-title';
-                        title.textContent = `Country: ${tour.country}`;
-
-                        const subtitle = document.createElement('h6');
-                        subtitle.className = 'card-title';
-                        subtitle.textContent = `City: ${tour.city}`;
-
-                        const description = document.createElement('p');
-                        description.className = 'card-text';
-                        description.textContent = tour.description;
-
-                        const detailsLink = document.createElement('a');
-                        detailsLink.href = '#'; // Подставьте здесь ваш путь для отображения дополнительных данных
-                        detailsLink.textContent = 'Show details';
-
-                        cardBody.appendChild(title);
-                        cardBody.appendChild(subtitle);
-                        cardBody.appendChild(description);
-                        cardBody.appendChild(detailsLink);
-
-                        card.appendChild(cardBody);
-                        tourContainer.appendChild(card);
-                    });
-                })
-                .catch(error => console.error('Error fetching tour data:', error));
-        }
-
-        // Вызовите эту функцию при загрузке страницы для отображения существующих туров
-        displayTours();
-
-
 
     </script>
-
-
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
