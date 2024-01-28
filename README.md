@@ -9,8 +9,8 @@ Welcome to the Travel Agency Web Application! This project is a smart routing tr
 
 1. **Clone the Repository:**
     ```bash
-   git clone https://github.com/Laura902l/ass1.git
-cd ass1
+    git clone https://github.com/Laura902l/ass1.git
+    cd ass1
 
     ```
 
