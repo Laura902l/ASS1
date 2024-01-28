@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 const axios = require('axios');
 app.use(express.static("public"));
 const router = express.Router();
-const path = require('path'); // Import the path module
+const path = require('path');
 const faker = require('faker');
 
 
@@ -15,36 +15,12 @@ const tourHistory = [];
 router.get('/', (req, res) => {
     res.render('home');
 });
-// Read tours from JSON file
+
 
 router.get('/travelagency', (req, res) => {
-    const filePath = path.join(__dirname, '../public/html', 'index.html'); // Update the path
+    const filePath = path.join(__dirname, '../public/html', 'index.html'); 
     res.sendFile(filePath);
 });
-
-router.post('/travelagency', (req, res) => {
-    const { city, country, description } = req.body;
-
-    const newTour = {
-        city,
-        country,
-        description,
-    };
-
-    tourHistory.push(newTour);
-
-    // Update the JSON file
-    fs.writeFileSync(tourHistoryFilePath, JSON.stringify(tourHistory, null, 2));
-
-    res.json({ message: 'Tour added successfully', newTour });
-});
-router.get('/tourHistory', (req, res) => {
-    res.render('tourHistory', { tourHistory });
-});
-
-
-
-
 
 router.post('/submitForm', async (req, res) => {
     try {
@@ -75,8 +51,6 @@ router.post('/submitForm', async (req, res) => {
             clouds: weatherResponse.data.clouds.all
         };
         if (['mist', 'broken clouds', 'haze'].includes(weatherResponse.data.weather[0].description)) {
-            // If the weather conditions indicate foggy weather, redirect to the home page
-            // Assuming you are rendering 'cancel.ejs' in your route handler
             res.render('cancel');
 
         } else {
@@ -87,18 +61,14 @@ router.post('/submitForm', async (req, res) => {
                 baseCost = (adults + 0.5 * children) * 1000;
                 baseCost *= hotelRating;
             } else {
-                // Default case for other cities
-                // Calculate the duration of the stay in days
                 const durationInDays = Math.ceil((dateDeparture - dateArrival) / (1000 * 60 * 60 * 24));
 
-                // Example: calculate base cost based on number of adults, children, and hotel rating
-                baseCost = (adults + 0.5 * children) * 1250; // Assuming $100 per adult and $50 per child
+                baseCost = (adults + 0.5 * children) * 1250;
                 baseCost *= hotelRating; // Increase cost based on hotel rating
                 console.log("baseCost", baseCost)
             }
 
 
-            // Example: calculate discount based on the number of children
             const discountForChildren = children > 5 ? 0.1 * baseCost : 0; // 10% discount if more than 5 children
 
             // Total cost
@@ -106,7 +76,6 @@ router.post('/submitForm', async (req, res) => {
             console.log("totalCost", totalCost)
             const flightNumber = faker.random.alphaNumeric(2).toUpperCase() + faker.random.number({ min: 1000, max: 9999 });
 
-            // Save the booking details to tourHistory array (or your database)
             const bookingDetails = {
                 flightNumber,
                 cityName,
@@ -120,10 +89,6 @@ router.post('/submitForm', async (req, res) => {
             };
 
             tourHistory.push(bookingDetails);
-
-            // You can send the total cost back as a response or do further processing
-            // res.json({ success: true, totalCost });
-
 
             // Render result page
             res.render('result', {
@@ -150,7 +115,7 @@ router.post('/submitForm', async (req, res) => {
     }
 });
 app.use((req, res, next) => {
-    res.locals.alertMessage = null; // Set a default value
+    res.locals.alertMessage = null; 
 
     // You can set the alert message based on certain conditions
     // For example, if the weather condition indicates foggy weather
@@ -162,10 +127,6 @@ app.use((req, res, next) => {
 });
 
 
-
-
-
-// Define a route to view the history of tours
 router.get('/tourHistory', (req, res) => {
     res.render('tourHistory', { tourHistory });
 });
