@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 const travelRoutes = require('./routes/travelRoutes');
-const staticRoutes = require('./routes/static'); // Corrected the require statement
+const staticRoutes = require('./routes/static');
 
 
 app.use('/travel', travelRoutes);
