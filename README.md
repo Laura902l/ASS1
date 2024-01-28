@@ -9,11 +9,12 @@ Welcome to the Travel Agency Web Application! This project is a smart routing tr
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/travel-agency.git
+    git clone [https://github.com/your-username/travel-agency](https://github.com/Laura902l/ass1/tree/main).git
     cd travel-agency
     ```
 
-2. **Install Dependencies:**
+2. **Install![image](https://github.com/Laura902l/ass1/assets/121919112/c58b9e7c-8e39-4f48-9d30-7ef82dc88609)
+ Dependencies:**
     ```bash
     npm install
     ```
