@@ -14,7 +14,7 @@ Welcome to the Travel Agency Web Application! This project is a smart routing tr
 
     ```
 
-2. **Install![image](https://github.com/Laura902l/ass1/assets/121919112/c58b9e7c-8e39-4f48-9d30-7ef82dc88609)
+2. **Install
  Dependencies:**
     ```bash
     npm install
