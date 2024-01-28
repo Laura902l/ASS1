@@ -17,10 +17,6 @@ app.use('/travel', travelRoutes);
 app.use('/', staticRoutes);
 
 app.use(bodyParser.json());
-
-
-
-// Запускаем сервер
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
