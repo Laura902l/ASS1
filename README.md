@@ -1,5 +1,6 @@
 # WEB Technologies 2 (Back End) - Assignment 1: Travel Agency
-
+# Kazikhanova Laura
+# SE-2209
 
 ## Introduction
 
