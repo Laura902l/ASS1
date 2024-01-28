@@ -8,10 +8,8 @@ app.use(express.static("public"));
 const router = express.Router();
 const path = require('path'); // Import the path module
 const faker = require('faker');
-const tourHistoryFilePath = path.join(__dirname, 'tourHistory.json');
-let tours = JSON.parse(fs.readFileSync(tourHistoryFilePath, 'utf-8'));
 
-// Array to store tour history data
+
 const tourHistory = [];
 
 router.get('/', (req, res) => {
