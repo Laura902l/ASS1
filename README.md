@@ -1,4 +1,4 @@
-#WEB Technologies 2 (Back End) - Assignment 1: Travel Agency
+## WEB Technologies 2 (Back End) - Assignment 1: Travel Agency
 
 
 ## Introduction
